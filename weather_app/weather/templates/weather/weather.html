@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{% static 'weather/styles.css' %}">
+</head>
+<body>
+    <div class="content_wrapper">
+        <center><h1>Weather Report</h1>
+        <h1>{{ temperature_c }}°C<sup style="font-size: 50%;">/ {{ temperature_f }}°F</sup></h1>
+    </center>
+        
+
+        <div class="weather_card">
+            <div class="weather_card_img">
+                <img src="{{ icon }}" alt="Weather Icon">
+            </div>
+            <div class="weather_card_infos">
+                <div class="weather_card_infos_title">
+                    {{ city }}, {{ country }}
+                </div>
+            <div class="weather_card_infos_upper">
+                {{Date}}
+            </div>
+                <div class="weather_card_infos_temp">
+                    Feelslike:{{feelslike_c}}°C / {{feelslike_f}}°F
+                    
+                </div>
+                <div class="bottom">
+                    <hr>
+                    <div class="weather_card_infos_bottom">
+                        Condition: {{ condition }}<br>
+                        Humidity: {{ humidity }}% - Pressure: {{ pressure }} hPa
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Search Bar at Bottom of Card -->
+        <form method="get" class="search_bar">
+            <input type="text" name="city" placeholder="Enter city name" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    
+</body>
+</html>
